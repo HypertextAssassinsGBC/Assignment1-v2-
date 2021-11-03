@@ -4,9 +4,10 @@ import org.springframework.context.annotation.Primary;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-@Entity
+
 public class BaseEntity implements Serializable {
 
 

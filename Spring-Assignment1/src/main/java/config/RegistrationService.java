@@ -17,6 +17,7 @@ public class RegistrationService {
         user.setUsername(request.getUsername());
         user.setPassword(request.getPassword());
         user.setUserRoles(UserRole.USER);
+        System.out.println("it works");
         return repository.save(user);
     }
 }

@@ -10,9 +10,8 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-
 public interface UserRepository extends JpaRepository<User, Long>{
-    @Query("SELECT u from User u WHERE u.email = :email")
+    @Query("SELECT u from User u WHERE u.username = :email")
     public User getUserByEmail(@Param("email") String email);
 
 }

@@ -1,7 +1,7 @@
 package model;
 
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Entity
 public class Recipe extends BaseEntity{
@@ -10,7 +10,7 @@ public class Recipe extends BaseEntity{
     private Long ID;
     private String title;
     private String body;
-    @Enumerated(EnumType.STRING)
+
     private String ingredients;
 
     public Long getID() {

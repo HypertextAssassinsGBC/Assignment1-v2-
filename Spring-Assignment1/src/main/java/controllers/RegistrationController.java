@@ -2,25 +2,27 @@ package controllers;
 
 import model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import config.RegistrationRequest;
 import config.RegistrationService;
 
 @Controller
-@RequestMapping(path = "/register/**")
+@RequestMapping
 public class RegistrationController {
     private RegistrationService registrationService;
 
     public RegistrationController(RegistrationService registrationService) {
         this.registrationService = registrationService;
     }
+    @GetMapping("register")
+    public String showRegistrationForm(){
+        return "/register.html";
+    }
     @PostMapping("register")
-    public ModelAndView register(@RequestBody RegistrationRequest request){
-        User registered = registrationService.register(request);
-        return new ModelAndView("/hello.html");
+    public String register(@ModelAttribute("user") RegistrationRequest request){
+        registrationService.register(request);
+        return "redirect:/hello.html";
 
     }
 

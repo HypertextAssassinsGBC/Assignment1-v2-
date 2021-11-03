@@ -1,14 +1,13 @@
 package model;
 
-import org.springframework.context.annotation.Primary;
+
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.List;
+
 
 @Entity
-public class User {
+public class User extends BaseEntity {
     @Id
     private Long ID;
     private String firstname;

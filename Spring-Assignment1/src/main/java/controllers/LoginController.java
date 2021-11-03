@@ -2,12 +2,17 @@ package controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
-    @GetMapping("login.html")
+    @GetMapping("login")
     public String login(){
-        return "../static/login";
+        return "hello.html";
+    }
+    @PostMapping("login")
+    public String loginSuccess(){
+        return "hello.html";
     }
 
 
