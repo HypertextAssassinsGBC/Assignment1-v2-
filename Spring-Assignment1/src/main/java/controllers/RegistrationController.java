@@ -9,7 +9,7 @@ import security.RegistrationRequest;
 import security.RegistrationService;
 
 @Controller
-@RequestMapping(path = "register")
+@RequestMapping(path = "/register/**")
 public class RegistrationController {
     private RegistrationService registrationService;
 
@@ -18,12 +18,11 @@ public class RegistrationController {
     }
     @PostMapping("register")
     public String register(@RequestBody RegistrationRequest request){
+
         return registrationService.register(request);
+
     }
-    @GetMapping
-    public String showRegistrationForm(){
-        return "register";
-    }
+
 
 
 
