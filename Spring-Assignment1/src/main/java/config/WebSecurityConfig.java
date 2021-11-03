@@ -1,40 +1,39 @@
-package security;
+package config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebSecurity
-
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Bean
-    public UserDetailsService userDetailsService(){
-        return super.userDetailsService();
-    };
-    UserDetailsService userDetailsService;
+    @Autowired
+    public UserDetailsService userDetailsService;
 
 
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(getPasswordEncoder());
-        return provider;
+    @Autowired
+    public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder
+                .userDetailsService(this.userDetailsService)
+                .passwordEncoder(getPasswordEncoder());
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers(
+                "/h2-console/**");
+
     }
 
     @Override
@@ -44,9 +43,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/register/**")
                 .permitAll()
-                .antMatchers("/h2-console/**").permitAll()
+                
+                
                 .anyRequest().authenticated()
-                .and().formLogin(form -> form.loginPage("login").permitAll());
+                .and().formLogin(form -> form.loginPage("/login.html").permitAll());
     }
     @Bean
     public PasswordEncoder getPasswordEncoder() {

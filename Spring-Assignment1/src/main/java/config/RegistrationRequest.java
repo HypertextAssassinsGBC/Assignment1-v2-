@@ -1,4 +1,6 @@
-package security;
+package config;
+
+import model.UserRole;
 
 import java.util.Objects;
 
@@ -7,12 +9,14 @@ public class RegistrationRequest {
     private final String lastname;
     private final String username;
     private final String password;
+    private final UserRole userRole;
 
-    public RegistrationRequest(String firstname, String lastname, String username, String password) {
+    public RegistrationRequest(String firstname, String lastname, String username, String password, UserRole userRole) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
+        this.userRole = userRole;
     }
 
     public String getFirstname() {
@@ -29,6 +33,10 @@ public class RegistrationRequest {
 
     public String getPassword() {
         return password;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
     }
 
     @Override

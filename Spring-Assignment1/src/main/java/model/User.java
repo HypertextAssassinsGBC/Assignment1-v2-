@@ -1,20 +1,33 @@
 package model;
 
+import org.springframework.context.annotation.Primary;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.List;
 
 @Entity
 public class User {
+    @Id
     private Long ID;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
+    private UserRole userRoles;
+
+
 
     public User(String firstname, String lastname, String username, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
+    }
+
+    public User() {
+
     }
 
     public Long getID() {
@@ -55,5 +68,12 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    public UserRole getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(UserRole userRoles) {
+        this.userRoles = userRoles;
     }
 }
