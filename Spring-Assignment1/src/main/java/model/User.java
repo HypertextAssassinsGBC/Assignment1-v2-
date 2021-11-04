@@ -3,26 +3,32 @@ package model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 
 @Entity
+
 public class User extends BaseEntity {
     @Id
+    @GeneratedValue
     private Long ID;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
+
     private UserRole userRoles;
 
 
 
-    public User(String firstname, String lastname, String username, String password) {
+    public User(String firstname, String lastname, String username, String password, UserRole userRole) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
+        this.userRoles = userRole;
     }
 
     public User() {
@@ -74,5 +80,17 @@ public class User extends BaseEntity {
 
     public void setUserRoles(UserRole userRoles) {
         this.userRoles = userRoles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "ID=" + ID +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", userRoles=" + userRoles +
+                '}';
     }
 }

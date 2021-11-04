@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers(
-                "/h2-console/**");
+                "/h2-console/**", "/resources/**", "/templates/**");
 
     }
 
@@ -40,13 +40,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
 
-                .authorizeRequests()
-                .antMatchers("/register**")
-                .permitAll()
+                .authorizeRequests().antMatchers( "/**").permitAll() //TODO - Add user check
+                
 
-                
-                
-                .anyRequest().authenticated()
                 .and().formLogin(form -> form.loginPage("/login.html").permitAll());
     }
     @Bean
