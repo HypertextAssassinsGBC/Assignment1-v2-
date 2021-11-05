@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
-    <title>Login || HypertextAssassinsGBC</title>
+    <meta charset="UTF-8">
+    <title>Recipe Creator || HypertextAssassinsGBC</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -14,7 +14,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
@@ -25,38 +25,31 @@
                 </li>
             </ul>
             <li class="form-inline my-2 my-lg-0">
-                <a class="badge badge-pill badge-light p-2" href="login.html">Login</a>
+                <a class="badge badge-pill badge-primary p-2" href="login.html">Login</a>
             </li>
         </div>
     </nav>
 
-    <div class="container p-5 rounded bg-dark my-5 text-light">
-        <div class="m-3">
-            <h2 class="text-right">Login</h2>
-            <form th:action="@{/login}" method="post">
-                <div class="form-group">
-                    <label> User Name :</label>
-                    <input class="form-control" type="text" name="username"/>
-                </div>
-                <div class="form-group">
-                    <label> Password:</label>
-                    <input class="form-control" type="password" name="password"/>
-                </div>
-                    <button class="btn btn-primary" type="submit" value="Sign In">Sign-in</button>
-            </form>
-            <div class="mt-4">
-                <div th:if="${param.error}" class="text-danger p-2">
-                    Invalid username and password.
-                </div>
-                <div th:if="${param.logout}" class="text-danger p-2">
-                    You have been logged out.
-                </div>
+<<<<<<< HEAD:Spring-Assignment1/src/main/resources/static/index.html
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://www.infinityfitness.com/wp-content/uploads/2018/01/High-Calorie-Day-Super-Bowl-Feast-1920x500.jpeg" class="d-block w-100" alt="...">
             </div>
         </div>
+    </div>
+=======
+<a href="/register">Register</a>
+>>>>>>> origin/master:Spring-Assignment1/src/main/resources/templates/index.html
 
-        <div class="mt-5">
-            <p>Don't have an account? Register now!</p>
-            <a class="badge-pill badge-light py-2 px-3" href="register.html" >Register Here</a>
+    <div class="d-flex flex-row text-light">
+        <div class="container border bg-dark p-5 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="font-weight-bold p-3 mb-2">List of Users</h1>
+            <a class="badge-pill badge-primary py-2 px-3" href="register.html">Register</a>
+        </div>
+        <div class="container border bg-dark p-5 d-flex flex-column justify-content-center align-items-center">
+            <h1 class="font-weight-bold p-3 mb-2">List of Users</h1>
+            <a class="badge-pill badge-primary py-2 px-3" href="register.html">Register</a>
         </div>
     </div>
 
@@ -65,4 +58,3 @@
     </nav>
 </body>
 </html>
-

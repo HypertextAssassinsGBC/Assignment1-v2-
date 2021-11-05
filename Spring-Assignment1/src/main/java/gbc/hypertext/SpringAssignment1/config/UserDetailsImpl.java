@@ -1,5 +1,6 @@
-package config;
+package gbc.hypertext.SpringAssignment1.config;
 
+import gbc.hypertext.SpringAssignment1.model.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,14 +10,12 @@ import java.util.Collection;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private String username;
+    private User user;
 
-    public UserDetailsImpl(String username){
-        this.username = username;
+    public UserDetailsImpl(User user){
+        this.user = user;
     }
-    public UserDetailsImpl(){
 
-    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Arrays.asList(new SimpleGrantedAuthority(("ROLE_USER")));

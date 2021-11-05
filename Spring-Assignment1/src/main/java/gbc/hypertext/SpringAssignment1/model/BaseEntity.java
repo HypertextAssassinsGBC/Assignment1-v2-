@@ -1,10 +1,6 @@
-package model;
+package gbc.hypertext.SpringAssignment1.model;
 
-import org.springframework.context.annotation.Primary;
-
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 

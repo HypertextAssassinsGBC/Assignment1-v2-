@@ -1,6 +1,6 @@
-package repository;
+package gbc.hypertext.SpringAssignment1.repository;
 
-import model.Cookbook;
+import gbc.hypertext.SpringAssignment1.model.Cookbook;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

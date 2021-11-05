@@ -54,8 +54,19 @@
         </form>
     </div>
 
+<<<<<<< HEAD:Spring-Assignment1/src/main/resources/static/register.html
     <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
         <h3 class="navbar-brand" href="#">HypertextAssassinsGBC&copy;</h3>
     </nav>
+=======
+<form th:action="@{/registerUser}" th:object="${user}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><label> First Name: <input type="text" name="firstname"/> </label></div>
+    <div><label> Last Name: <input type="text" name="lastname"/> </label></div>
+
+    <div><input type="submit" value="Register"/></div>
+</form>
+>>>>>>> origin/master:Spring-Assignment1/src/main/resources/templates/register-form.html
 </body>
 </html>

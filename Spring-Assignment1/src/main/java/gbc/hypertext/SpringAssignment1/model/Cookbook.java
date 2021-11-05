@@ -1,8 +1,7 @@
-package model;
+package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 
 @Entity

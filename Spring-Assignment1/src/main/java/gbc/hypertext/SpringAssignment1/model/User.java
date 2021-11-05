@@ -1,18 +1,14 @@
-package model;
+package gbc.hypertext.SpringAssignment1.model;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 
 
 @Entity
-
 public class User extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     private String firstname;
     private String lastname;
@@ -28,7 +24,7 @@ public class User extends BaseEntity {
         this.lastname = lastname;
         this.username = username;
         this.password = password;
-        this.userRoles = userRole;
+        this.userRoles = UserRole.USER;
     }
 
     public User() {
