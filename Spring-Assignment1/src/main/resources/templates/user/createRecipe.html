@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+
+<!--/*@thymesVar id="recipe" type="gbc.hypertext.SpringAssignment1.model.Recipe"*/-->
+<form th:action="@{/createRecipe}"  method="post" th:object="${recipe}">
+    <div><label> Recipe Name : <input type="text" name="title"/> </label></div>
+
+    <textarea><label> Body: <input type="text" name="body"/> </label></textarea>
+    <thead>
+        <button type="submit" name="addRow" th:text="Add Row">Add Row</button>
+        <div><label> Ingredients List:  <input type="text" name="lastname"/> </label></div>
+    </thead>
+    <tbody>
+        <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>
+        <td><input type="text" placeholder="Ingredient..." th:field="*{ingredients}" /></td>
+    </tbody>
+
+    <div><input type="submit" value="Register"/></div>
+</form>
+</body>
+</html>

@@ -1,6 +1,7 @@
-package model;
+package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -10,8 +11,17 @@ public class Recipe extends BaseEntity{
     private Long ID;
     private String title;
     private String body;
+    @ElementCollection
+    private List<String> ingredients;
 
-    private String ingredients;
+    public Recipe(String title, String body, List<String> ingredients) {
+        this.title = title;
+        this.body = body;
+        this.ingredients = ingredients;
+    }
+    public Recipe(){
+
+    }
 
     public Long getID() {
         return ID;
@@ -37,11 +47,11 @@ public class Recipe extends BaseEntity{
         this.body = body;
     }
 
-    public String getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(String ingredients) {
+    public void setIngredients(List ingredients) {
         this.ingredients = ingredients;
     }
 }
