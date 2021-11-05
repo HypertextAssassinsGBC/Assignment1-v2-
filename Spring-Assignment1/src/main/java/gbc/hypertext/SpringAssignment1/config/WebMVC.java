@@ -13,7 +13,7 @@ public class WebMVC implements WebMvcConfigurer {
     @Bean
     public ViewResolver ViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("../resources/static/");
+        bean.setPrefix("../resources/templates/");
         bean.setSuffix(".html");
         return bean;
     }

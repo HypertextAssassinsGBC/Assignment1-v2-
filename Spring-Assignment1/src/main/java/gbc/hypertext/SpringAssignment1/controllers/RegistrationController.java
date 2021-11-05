@@ -8,13 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
 @Controller
-
 public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
-
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model ){
@@ -28,7 +25,6 @@ public class RegistrationController {
         user.setUserRoles(UserRole.USER);
         userRepository.save(user);
 
-        
         return "/user/index";
     }
 
