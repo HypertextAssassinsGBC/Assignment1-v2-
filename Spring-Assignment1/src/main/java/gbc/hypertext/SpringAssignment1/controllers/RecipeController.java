@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.*;
+
 @Controller
 
 public class RecipeController {
@@ -24,16 +26,29 @@ public class RecipeController {
         return "/recipe/index";
     }
 
-    @GetMapping("/user/createRecipe")
+    @GetMapping("/createRecipe")
     public String showRegistrationForm(Model model ){
         model.addAttribute("recipe", new Recipe());
+
         return "/user/createRecipe";
     }
 
-    @PostMapping("/user/createRecipe")
+    @PostMapping("/createRecipe")
     public String registerUser(Recipe recipe){
 
         recipeRepository.save(recipe);
         return "/user/viewRecipes";
     }
+    /*
+    //This may end up working but we may have to use javascript
+    @RequestMapping(value="/createRecipe", params={"addRow"})
+    public String addRow( Recipe recipe, Model model) {
+
+        List<String> ingredients = new  ArrayList<>();
+        recipe.setIngredients(ingredients);
+        model.addAttribute("recipe", recipe);
+        return "/user/createRecipe";
+    }
+
+    */
 }

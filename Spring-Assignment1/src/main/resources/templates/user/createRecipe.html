@@ -13,12 +13,12 @@
 
     <textarea><label> Body: <input type="text" name="body"/> </label></textarea>
     <thead>
-        <button type="submit" name="addRow" th:text="Add Row">Add Row</button>
-        <div><label> Ingredients List:  <input type="text" name="lastname"/> </label></div>
+    <button type="submit" name="addRow" th:text="Add Row">Add Row</button>
+    <div><label> Ingredients List:  <input type="text" name="lastname"/> </label></div>
     </thead>
     <tbody>
-        <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>
-        <td><input type="text" placeholder="Ingredient..." th:field="*{ingredients}" /></td>
+    <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>
+    <td><input type="text" placeholder="Ingredient..." th:field="*{ingredients}" /></td>
     </tbody>
 
     <div><input type="submit" value="Register"/></div>

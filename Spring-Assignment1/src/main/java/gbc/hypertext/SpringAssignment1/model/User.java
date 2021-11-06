@@ -16,6 +16,8 @@ public class User extends BaseEntity {
     private String password;
 
     private UserRole userRoles;
+    @OneToOne
+    private Cookbook cookbook;
 
 
 
