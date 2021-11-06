@@ -19,8 +19,6 @@ public class User extends BaseEntity {
     @OneToOne
     private Cookbook cookbook;
 
-
-
     public User(String firstname, String lastname, String username, String password, UserRole userRole) {
         this.firstname = firstname;
         this.lastname = lastname;

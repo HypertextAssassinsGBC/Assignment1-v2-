@@ -58,9 +58,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests().antMatchers( "/user").authenticated()
                 .anyRequest().permitAll()//TODO - Add user check
-                
 
-                .and().formLogin(form -> form.loginPage("/login.html").permitAll());
+
+                .and().formLogin(form -> form.loginPage("/login").permitAll());
     }
 
 }

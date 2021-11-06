@@ -26,6 +26,12 @@ public class RecipeController {
         return "/recipe/index";
     }
 
+    @GetMapping({"/viewRecipes"})
+    public String viewRecipes() {return "/user/viewRecipes";}
+
+    @GetMapping({"/viewCookbook"})
+    public String viewCookbook() {return "/user/viewCookbook";}
+
     @GetMapping("/createRecipe")
     public String showRegistrationForm(Model model ){
         model.addAttribute("recipe", new Recipe());
@@ -39,6 +45,9 @@ public class RecipeController {
         recipeRepository.save(recipe);
         return "/user/viewRecipes";
     }
+
+
+
     /*
     //This may end up working but we may have to use javascript
     @RequestMapping(value="/createRecipe", params={"addRow"})
