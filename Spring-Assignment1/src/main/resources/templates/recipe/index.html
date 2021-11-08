@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
@@ -33,18 +34,20 @@
     <div class="container">
         <h2 class="text-center m-4">All Recipes</h2>
         <div class="card-columns p-2">
-            <div class="card">
-                <img class="card-img-top" src="https://www.budgetbytes.com/wp-content/uploads/2021/10/Slow-Cooker-Buffalo-Chicken-close-400x300.jpg" alt="Card image cap">
+            <div th:each="recipe : ${recipes}" class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Recipe #1</h5>
-                    <p class="card-text">Recipe Recipe</p>
-                    <a class="btn btn-primary" href="#">View Recipe</a>
+                    <h5 th:text="${recipe.title}" class="card-title"></h5>
+                    <h6 class="card-text" th:text="${recipe.id}"></h6>
+                    <p class="card-text" th:text="${recipe.body}"></p>
+                    <p class="card-text" th:text="${recipe.ingredients}"></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+    <div class="p-4"></div>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
         <h3 class="navbar-brand" href="#">HypertextAssassinsGBC&copy;</h3>
     </nav>
 </body>

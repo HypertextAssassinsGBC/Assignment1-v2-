@@ -23,9 +23,11 @@ public class RegistrationController {
 
         return "/register-form";
     }
+    
     @PostMapping("/registerUser")
     public String registerUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
 
         return "/user/index";

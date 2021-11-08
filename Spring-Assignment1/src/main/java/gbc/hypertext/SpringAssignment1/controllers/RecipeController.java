@@ -26,7 +26,8 @@ public class RecipeController {
     private CookBookRepository cookBookRepository;
 
     @GetMapping({ "/recipe/all"})
-    public String allRecipes(){
+    public String allRecipes(Model model){
+        model.addAttribute("recipes", recipeRepository.findAll());
         return "/recipe/index";
     }
 

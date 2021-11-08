@@ -42,11 +42,18 @@
         </div>
 
         <div class="container p-3 rounded bg-secondary">
-            <h2 class="text-center">Your Cookbook!</h2>
-            <hr class="my-4">
-            <p class="lead">Placeholder</p>
-
-
+            <div class="card-deck">
+                <div th:each="cookboo : ${cookbook}" class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${cookboo.name}"></h5>
+                        <h6 class="card-text" th:text="${cookboo.id}"></h6>
+                        <p class="card-text" th:text="${cookboo.dateCreated}"></p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted text-center">HypertextAssassinsGBC</small>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
