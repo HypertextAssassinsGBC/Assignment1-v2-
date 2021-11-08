@@ -2,7 +2,7 @@ package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 import gbc.hypertext.SpringAssignment1.model.User;
-import gbc.hypertext.SpringAssignment1.model.UserRole;
+
 import gbc.hypertext.SpringAssignment1.repository.CookBookRepository;
 import gbc.hypertext.SpringAssignment1.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;

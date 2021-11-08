@@ -15,16 +15,16 @@ public class User extends BaseEntity {
     private String username;
     private String password;
 
-    private UserRole userRoles;
+    private String userRoles;
     @OneToOne
     private Cookbook cookbook;
 
-    public User(String firstname, String lastname, String username, String password, UserRole userRole) {
+    public User(String firstname, String lastname, String username, String password, String userRole) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
-        this.userRoles = UserRole.USER;
+        this.userRoles = "USER";
     }
 
     public User() {
@@ -70,11 +70,11 @@ public class User extends BaseEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-    public UserRole getUserRoles() {
+    public String getUserRoles() {
         return userRoles;
     }
 
-    public void setUserRoles(UserRole userRoles) {
+    public void setUserRoles(String userRoles) {
         this.userRoles = userRoles;
     }
 
