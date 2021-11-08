@@ -89,17 +89,29 @@ public class SpringAssignment1Application {
 			recipeRepository.save(chickenSoup);
 
 			List<String> pumpkinCreamCheeseMuffins = new ArrayList<>();
-			soupIngredients.add("1 (8 ounce) package cream cheese");
-			soupIngredients.add("1 egg");
-			soupIngredients.add("1 teaspoon vanilla extract");
-			soupIngredients.add("3 tablespoons brown sugar");
-			soupIngredients.add("5 tablespoons white sugar");
+			pumpkinCreamCheeseMuffins.add("1 (8 ounce) package cream cheese");
+			pumpkinCreamCheeseMuffins.add("1 egg");
+			pumpkinCreamCheeseMuffins.add("1 teaspoon vanilla extract");
+			pumpkinCreamCheeseMuffins.add("3 tablespoons brown sugar");
+			pumpkinCreamCheeseMuffins.add("5 tablespoons white sugar");
 			Recipe pumpkinMuffins = new Recipe(
 					"Pumpkin Cream Cheese Muffins",
 					"You'll be glad you made this recipe for pumpkin muffins with a cream cheese filling and a streusel topping.",
 					pumpkinCreamCheeseMuffins
 			);
 			recipeRepository.save(pumpkinMuffins);
+
+			List<String> EasyBrusselsSproutsSalad = new ArrayList<>();
+			EasyBrusselsSproutsSalad.add("3 cups Brussels sprouts, halved");
+			EasyBrusselsSproutsSalad.add("4 slices bacon");
+			EasyBrusselsSproutsSalad.add("1 cup raisins");
+			EasyBrusselsSproutsSalad.add("1 cup coleslaw dressing");
+			Recipe BrusselsSalad = new Recipe(
+					"Easy Brussels Sprouts Salad",
+					"This Brussels sprouts salad recipe will convince anyone that they are super yummy.",
+					EasyBrusselsSproutsSalad
+			);
+			recipeRepository.save(BrusselsSalad);
 
 			//Bootstrap Cookbooks
 			Cookbook markBook = new Cookbook("Mark's Cookbook");
