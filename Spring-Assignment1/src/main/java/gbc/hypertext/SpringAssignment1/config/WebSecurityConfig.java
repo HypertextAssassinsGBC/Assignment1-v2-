@@ -1,3 +1,12 @@
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: configures security and authentication protocols
+ *********************************************************************************/
+
 package gbc.hypertext.SpringAssignment1.config;
 
 
@@ -65,7 +74,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
 
-                .formLogin().permitAll()
+                .formLogin().loginPage("/login").permitAll()
                 .and()
                 .logout().permitAll();
         http.csrf().disable();

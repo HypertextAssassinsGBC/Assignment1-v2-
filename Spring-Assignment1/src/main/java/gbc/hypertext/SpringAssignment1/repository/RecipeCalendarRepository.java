@@ -9,18 +9,11 @@
 
 package gbc.hypertext.SpringAssignment1.repository;
 
-import gbc.hypertext.SpringAssignment1.model.Recipe;
+import gbc.hypertext.SpringAssignment1.model.RecipeCalendar;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Set;
-
 @Repository
-public interface RecipeRepository extends JpaRepository<Recipe, Long>{
-    Set<Recipe> findByIngredients(String[] ingredients);
+public interface RecipeCalendarRepository extends JpaRepository<RecipeCalendar, Long> {
 
-    @Query("SELECT r FROM Recipe r WHERE r.title LIKE %?1%")
-    public List<Recipe> search(String keyword);
 }

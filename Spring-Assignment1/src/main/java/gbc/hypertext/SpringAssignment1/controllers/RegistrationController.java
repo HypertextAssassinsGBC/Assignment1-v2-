@@ -1,4 +1,11 @@
-package gbc.hypertext.SpringAssignment1.controllers;
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: routes registration pages
+ *********************************************************************************/package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.User;
 
@@ -27,10 +34,10 @@ public class RegistrationController {
     @PostMapping("/registerUser")
     public String registerUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-
+        user.setUserRoles("USER");
         userRepository.save(user);
 
-        return "/user/index";
+        return "/login";
     }
 
 

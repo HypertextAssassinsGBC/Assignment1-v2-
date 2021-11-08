@@ -1,3 +1,12 @@
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: sets the view resolver and basic controller names
+ *********************************************************************************/
+
 package gbc.hypertext.SpringAssignment1.config;
 
 import org.springframework.context.annotation.Bean;
@@ -23,7 +32,7 @@ public class WebMVC implements WebMvcConfigurer {
         public void addViewControllers(ViewControllerRegistry registry){
             registry.addViewController("/").setViewName("login");
             registry.addViewController("/login").setViewName("login");
-            registry.addViewController("/registration").setViewName("registration");
+            registry.addViewController("/registration").setViewName("register-form");
             registry.addViewController("/home").setViewName("index");
         }
     }

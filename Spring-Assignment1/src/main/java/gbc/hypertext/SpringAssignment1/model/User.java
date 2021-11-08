@@ -1,6 +1,13 @@
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: modeling the user
+ *********************************************************************************/
+
 package gbc.hypertext.SpringAssignment1.model;
-
-
 
 import javax.persistence.*;
 
@@ -19,12 +26,16 @@ public class User extends BaseEntity {
     @OneToOne
     private Cookbook cookbook;
 
+    @OneToOne
+    private RecipeCalendar recipeCalendar;
+
     public User(String firstname, String lastname, String username, String password, String userRole) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
         this.userRoles = "USER";
+        this.cookbook = null;
     }
 
     public User() {

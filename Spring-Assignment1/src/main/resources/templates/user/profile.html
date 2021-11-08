@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
+<html lang="en">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Registration Success</title>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <title>Profile</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,14 +21,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/recipe/all">Recipes</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/user/recipes">User Recipes</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="../about">About</a>
                 </li>
             </ul>
-            <li class="nav-item form-inline my-lg-0 mr-5 dropdown">
+            <li class="active nav-item form-inline my-lg-0 mr-5 dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     User
                 </a>
@@ -42,24 +41,14 @@
         </div>
     </nav>
 
-    <div class="container my-5 p-5 h-100">
-        <div class="bg-dark text-light rounded mx-5 py-5 row h-100 justify-content-center align-items-center flex-column">
-            <h3 class="p-2">You have signed in successfully!</h3>
-            <div class="p-3 justify-content-around">
-                <a class="btn btn-primary p-2" href="/createRecipe">Create a new recipe</a>
-                <a class="btn btn-primary p-2" href="/viewRecipes">View your recipes</a>
-                <a class="btn btn-primary p-2" href="/viewCookbook">View your cookbook</a>
-            </div>
-        </div>
-    </div>
-    <div class="user-information">
-        <tr>
-
-        </tr>
+    <div class="container m-3">
+        <h2>Welcome to your profile!</h2>
+        <p class="p-2" th:text="${username}"></p>
+        <a class="btn btn-danger p-2" href="/logout">Logout</a>
     </div>
 
     <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
-        <h3 class="navbar-brand" href="#">HypertextAssassinsGBC&copy;</h3>
+        <h3 class="navbar-brand">HypertextAssassinsGBC&copy;</h3>
     </nav>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
