@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
@@ -39,34 +40,13 @@
         </div>
 
         <div class="card-deck">
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
+            <div th:each="recipe : ${recipes}" class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Recipe #1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a class="btn btn-primary" href="#">View Recipe</a>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted text-center">HypertextAssassinsGBC</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Recipe #2</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a class="btn btn-primary" href="#">View Recipe</a>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted text-center">HypertextAssassinsGBC</small>
-                </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Recipe #3</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <a class="btn btn-primary" href="#">View Recipe</a>
+                    <h5 class="card-title" th:text="${recipe.title}"></h5>
+                    <h6 class="card-text" th:text="${recipe.id}"></h6>
+                    <p class="card-text" th:text="${recipe.body}"></p>
+                    <p class="card-text" th:text="${recipe.ingredients}"></p>
+                    <a class="btn btn-primary" href="#">Add Recipe to Cookbook</a>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted text-center">HypertextAssassinsGBC</small>

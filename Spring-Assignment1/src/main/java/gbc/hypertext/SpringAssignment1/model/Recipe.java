@@ -14,14 +14,16 @@ public class Recipe extends BaseEntity{
     @ElementCollection
     private List<String> ingredients;
 
+    public Recipe(){
+
+    }
+
     public Recipe(String title, String body, List<String> ingredients) {
         this.title = title;
         this.body = body;
         this.ingredients = ingredients;
     }
-    public Recipe(){
 
-    }
 
     public Long getID() {
         return ID;

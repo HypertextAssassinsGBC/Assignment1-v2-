@@ -3,6 +3,7 @@ package gbc.hypertext.SpringAssignment1.controllers;
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 import gbc.hypertext.SpringAssignment1.model.User;
 import gbc.hypertext.SpringAssignment1.model.UserRole;
+import gbc.hypertext.SpringAssignment1.repository.CookBookRepository;
 import gbc.hypertext.SpringAssignment1.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,16 +22,25 @@ public class RecipeController {
     @Autowired
     private RecipeRepository recipeRepository;
 
+    @Autowired
+    private CookBookRepository cookBookRepository;
+
     @GetMapping({ "/recipe/all"})
     public String allRecipes(){
         return "/recipe/index";
     }
 
     @GetMapping({"/viewRecipes"})
-    public String viewRecipes() {return "/user/viewRecipes";}
+    public String viewRecipes(Model model) {
+        model.addAttribute("recipes", recipeRepository.findAll());
+        return "/user/viewRecipes";
+    }
 
     @GetMapping({"/viewCookbook"})
-    public String viewCookbook() {return "/user/viewCookbook";}
+    public String viewCookbook(Model model) {
+        model.addAttribute("cookbook", cookBookRepository.findAll());
+        return "/user/viewCookbook";
+    }
 
     @GetMapping("/createRecipe")
     public String showRegistrationForm(Model model ){
@@ -40,9 +50,9 @@ public class RecipeController {
     }
 
     @PostMapping("/createRecipe")
-    public String registerUser(Recipe recipe){
-
+    public String registerUser(Recipe recipe, Model model){
         recipeRepository.save(recipe);
+        model.addAttribute("recipes", recipeRepository.findAll());
         return "/user/viewRecipes";
     }
 
