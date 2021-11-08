@@ -20,9 +20,10 @@ public class RegistrationController {
 
         return "/register-form";
     }
+    
     @PostMapping("/registerUser")
     public String registerUser(User user){
-        user.setUserRoles(UserRole.USER);
+        user.setUserRoles("USER");
         userRepository.save(user);
 
         return "/user/index";

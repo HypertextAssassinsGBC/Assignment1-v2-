@@ -45,14 +45,13 @@ public class SpringAssignment1Application {
 		return (args) -> {
 
 			//Bootstrap users
-			User admin = new User("Duncan", "Wardlaw", "duncan@gmail.com", "pass", UserRole.ADMIN);
-			admin.setUserRoles(UserRole.ADMIN);
+			User admin = new User("Duncan", "Wardlaw", "duncan@gmail.com", "pass", "USER");
 			userRepository.save(admin);
-			User jeff = new User("Jeff", "Bezos", "jeffybezos@gmail.com", "amazon", UserRole.USER);
+			User jeff = new User("Jeff", "Bezos", "jeffybezos@gmail.com", "amazon", "USER");
 			userRepository.save(jeff);
-			User mark = new User("Mark", "Zuck", "markyzuck@gmail.com", "facebook", UserRole.USER);
+			User mark = new User("Mark", "Zuck", "markyzuck@gmail.com", "facebook", "USER");
 			userRepository.save(mark);
-			User eli = new User("Eli", "Musky", "elongatedmusk@gmail.com", "tesla", UserRole.USER);
+			User eli = new User("Eli", "Musky", "elongatedmusk@gmail.com", "tesla", "USER");
 			userRepository.save(eli);
 
 
@@ -88,6 +87,19 @@ public class SpringAssignment1Application {
 					soupIngredients
 			);
 			recipeRepository.save(chickenSoup);
+
+			List<String> pumpkinCreamCheeseMuffins = new ArrayList<>();
+			soupIngredients.add("1 (8 ounce) package cream cheese");
+			soupIngredients.add("1 egg");
+			soupIngredients.add("1 teaspoon vanilla extract");
+			soupIngredients.add("3 tablespoons brown sugar");
+			soupIngredients.add("5 tablespoons white sugar");
+			Recipe pumpkinMuffins = new Recipe(
+					"Pumpkin Cream Cheese Muffins",
+					"You'll be glad you made this recipe for pumpkin muffins with a cream cheese filling and a streusel topping.",
+					pumpkinCreamCheeseMuffins
+			);
+			recipeRepository.save(pumpkinMuffins);
 
 			//Bootstrap Cookbooks
 			Cookbook markBook = new Cookbook("Mark's Cookbook");
