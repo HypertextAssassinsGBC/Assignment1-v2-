@@ -8,23 +8,51 @@
     <title>Create a new Recipe || HypertextAssassinsGBC</title>
 </head>
 <body>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Recipe Creator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/recipe/all">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about">About</a>
+                </li>
+            </ul>
+            <li class="form-inline my-2 my-lg-0">
+                <a class="badge badge-pill badge-light p-2" href="/login">Login</a>
+            </li>
+        </div>
+    </nav>
 
 <!--/*@thymesVar id="recipe" type="gbc.hypertext.SpringAssignment1.model.Recipe"*/-->
-<form th:action="@{/createRecipe}"  method="post" th:object="${recipe}">
-    <div><label> Recipe Name : <input type="text" name="title"/> </label></div>
+    <div class="container p-5 rounded bg-dark my-5 text-light">
+        <form th:action="@{/createRecipe}"  method="post" th:object="${recipe}">
+            <div class="form-group">
+                <label> Recipe Name: </label>
+                <input class="form-control" type="text" name="title"/>
+            </div>
+            <div class="form-group">
+                <label>Body:</label>
+                <input class="form-control" type="text" name="body"/>
+            </div>
+            <div class="form-group">
+                <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>
+                <input class="form-control" type="text" placeholder="Ingredient..." th:field="*{ingredients}" />
+                <small class="form-text text-muted p-2">Make sure to do a comma seperated list!</small>
+            </div>
+            <button class="btn btn-primary" type="submit" value="Register">Create</button>
+        </form>
+    </div>
 
-    <textarea><label> Body: <input type="text" name="body"/> </label></textarea>
-    <thead>
-    <button type="submit" name="addRow">Add Row</button>
-    <div><label> Ingredients List:  <input type="text" name="lastname"/> </label></div>
-    </thead>
-    <tbody>
-    <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>
-    <td><input type="text" placeholder="Ingredient..." th:field="*{ingredients}" /></td>
-    </tbody>
-
-    <div><input type="submit" value="Register"/></div>
-</form>
+    <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
+        <h3 class="navbar-brand">HypertextAssassinsGBC&copy;</h3>
+    </nav>
 </body>
 </html>
