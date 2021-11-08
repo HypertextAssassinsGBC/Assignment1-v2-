@@ -1,9 +1,10 @@
 package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.User;
-import gbc.hypertext.SpringAssignment1.model.UserRole;
+
 import gbc.hypertext.SpringAssignment1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model ){
@@ -22,7 +25,7 @@ public class RegistrationController {
     }
     @PostMapping("/registerUser")
     public String registerUser(User user){
-        user.setUserRoles(UserRole.USER);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
 
         return "/user/index";
