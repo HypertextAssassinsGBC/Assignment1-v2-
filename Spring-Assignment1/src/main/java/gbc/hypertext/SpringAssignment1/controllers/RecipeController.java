@@ -55,6 +55,12 @@ public class RecipeController {
         model.addAttribute("recipes", recipeRepository.findAll());
         return "/user/viewRecipes";
     }
+    @GetMapping({"/search"})
+    public String findByKeyword(String keyword, Model model){
+        model.addAttribute("recipes", recipeRepository.findAllByIngredientsIgnoreCase(keyword));
+        System.out.println(recipeRepository.findAllByIngredientsIgnoreCase(keyword));
+        return "/user/viewRecipes";
+    };
 
     @GetMapping({"/viewCookbook"})
     public String viewCookbook(Model model) {

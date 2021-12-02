@@ -19,8 +19,8 @@ import java.util.Set;
 
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Long>{
-    Set<Recipe> findByIngredients(String[] ingredients);
 
-    @Query("SELECT r FROM Recipe r WHERE r.title LIKE %?1%")
-    public List<Recipe> search(String keyword);
+
+
+    public List<Recipe> findAllByIngredientsIgnoreCase(String keyword);
 }

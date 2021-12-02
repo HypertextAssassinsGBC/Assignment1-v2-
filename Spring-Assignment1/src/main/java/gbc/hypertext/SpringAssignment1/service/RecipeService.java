@@ -20,10 +20,5 @@ public class RecipeService {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    public List<Recipe> listAll(String keyword) {
-        if (keyword != null) {
-            return recipeRepository.search(keyword);
-        }
-        return recipeRepository.findAll();
-    }
+
 }
