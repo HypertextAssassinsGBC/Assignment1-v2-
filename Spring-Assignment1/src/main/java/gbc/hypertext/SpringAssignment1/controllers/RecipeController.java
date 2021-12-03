@@ -61,6 +61,7 @@ public class RecipeController {
 
         return "/recipe/viewRecipe";
     }
+
     @PostMapping({"/markFavourite/{id}"})
     public String markFavourite(@PathVariable long id, Model model ){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -71,14 +72,19 @@ public class RecipeController {
         selected.setFavouritedBy(current);
         model.addAttribute("recipes" ,current.getFavourites());
 
-        return "/user/favourites";
+        return "/recipe/favouritesVerification";
     }
+
+
+
+    
     @GetMapping({"/viewIngredients/{id}"})
     public String viewIngredients(@PathVariable long id, Model model){
         Recipe selected = recipeRepository.getById(id);
         model.addAttribute("ingredients", selected.getIngredients());
         return "/recipe/viewIngredients";
     }
+
     @GetMapping({"/search"})
     public String findByKeyword(String keyword, Model model){
         model.addAttribute("recipes", recipeRepository.findAllByIngredientsIgnoreCase(keyword));

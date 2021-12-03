@@ -8,6 +8,51 @@
     <title>View Recipe || HypertextAssassinsGBC</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Recipe Creator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/recipe/all">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user/recipes">User Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about">About</a>
+                </li>
+            </ul>
+            <li class="nav-item form-inline my-lg-0 mr-5 dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/profile">Profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+            <form class="form-inline my-2 mr-2 my-lg-0" th:action="@{/search}">
+                <input class="form-control mr-sm-2" type="search" name="keyword" id="keyword" th:value="${keyword}" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/recipe/index">All Recipes</a></li>
+            <li class="breadcrumb-item active" aria-current="page" th:text="${recipe.title}"></li>
+        </ol>
+    </nav>
 
 <div>
     <h3 th:text="${recipe.title}"></h3>
@@ -21,5 +66,20 @@
     </form>
 </div>
 
+
+    <div class="container card mt-5 bg-secondary">
+        <div class="card-body p-4">
+            <h2 th:text="${recipe.title}"></h2>
+            <h6 th:text="${recipe.ingredients}"></h6>
+            <h6 th:text="${recipe.body}"></h6>
+            <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
+            <button class="btn btn-primary mt-2" type="submit" >Mark As Favourite</button>
+            </form>
+        </div>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
+        <h3 class="navbar-brand" href="#">HypertextAssassinsGBC&copy;</h3>
+    </nav>
 </body>
 </html>
