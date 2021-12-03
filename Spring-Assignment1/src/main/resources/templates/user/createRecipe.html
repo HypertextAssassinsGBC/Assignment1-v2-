@@ -49,8 +49,9 @@
                 <input class="form-control" type="text" name="title"/>
             </div>
             <div class="form-group">
-                <label>Description:</label>
-                <input class="form-control" type="text" name="body"/>
+                <tr id="steps" th:each="stepsRow, rowStat : *{steps}"></tr>
+                <input class="form-control" type="text" placeholder="Step..." th:field="*{steps}" />
+                <small class="form-text text-muted p-2">Make sure to do a comma seperated list!</small>
             </div>
             <div class="form-group">
                 <tr id="ingredients" th:each="ingredientsRow, rowStat : *{ingredients}"></tr>

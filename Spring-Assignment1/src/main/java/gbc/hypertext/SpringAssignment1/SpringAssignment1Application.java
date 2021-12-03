@@ -79,9 +79,13 @@ public class SpringAssignment1Application {
 			lasagnaIngredients.add("Tomato sauce");
 			lasagnaIngredients.add("Beef");
 
+			List<String> lasagnaSteps = new ArrayList<>();
+			lasagnaSteps.add("Put the lasagna together in a baking sheet.");
+			lasagnaSteps.add("Then put in the oven for an hour.");
+			lasagnaSteps.add("I don't fucking know.");
+
 			Recipe lasagna = new Recipe(
-					"Lasagna",
-					"Put the lasagna together in a baking sheet. Then put in the oven for an hour. I don't fucking know.",
+					"Lasagna", lasagnaSteps ,
 					lasagnaIngredients
 			);
 			recipeRepository.save(lasagna);
@@ -92,9 +96,13 @@ public class SpringAssignment1Application {
 			soupIngredients.add("Onions");
 			soupIngredients.add("Carrots");
 			soupIngredients.add("Celery");
+
+			List<String> soupSteps = new ArrayList<>();
+			soupSteps.add("Cook the chicken. ");
+			soupSteps.add("Put it in the soup.");
 			Recipe chickenSoup = new Recipe(
-					"Chicken Soup",
-					"Cook the chicken. Put it in the soup.",
+					"Chicken Soup", soupSteps
+					,
 					soupIngredients
 			);
 			recipeRepository.save(chickenSoup);
@@ -105,9 +113,15 @@ public class SpringAssignment1Application {
 			pumpkinCreamCheeseMuffins.add("1 teaspoon vanilla extract");
 			pumpkinCreamCheeseMuffins.add("3 tablespoons brown sugar");
 			pumpkinCreamCheeseMuffins.add("5 tablespoons white sugar");
+
+			List<String> pumpkinSteps = new ArrayList<>();
+			pumpkinSteps.add("Put pumpkin and cream cheese near each other.");
+			pumpkinSteps.add("Shape it into a muffin.");
+			pumpkinSteps.add("Put muffin shaped thing in the oven.");
 			Recipe pumpkinMuffins = new Recipe(
 					"Pumpkin Cream Cheese Muffins",
-					"You'll be glad you made this recipe for pumpkin muffins with a cream cheese filling and a streusel topping.",
+					pumpkinSteps
+					,
 					pumpkinCreamCheeseMuffins
 			);
 			recipeRepository.save(pumpkinMuffins);
@@ -117,9 +131,16 @@ public class SpringAssignment1Application {
 			EasyBrusselsSproutsSalad.add("4 slices bacon");
 			EasyBrusselsSproutsSalad.add("1 cup raisins");
 			EasyBrusselsSproutsSalad.add("1 cup coleslaw dressing");
+
+			List<String> saladSteps = new ArrayList<>();
+			saladSteps.add("Cut all the things into salad sized pieces.");
+			saladSteps.add("Shake the dressing a lot. Even more than you would think.");
+			saladSteps.add("Combine everything in a large plastic salad spinner.");
+
+
 			Recipe BrusselsSalad = new Recipe(
 					"Easy Brussels Sprouts Salad",
-					"This Brussels sprouts salad recipe will convince anyone that they are super yummy.",
+					saladSteps,
 					EasyBrusselsSproutsSalad
 			);
 			recipeRepository.save(BrusselsSalad);

@@ -21,7 +21,8 @@ public class Recipe extends BaseEntity implements Serializable {
     @GeneratedValue
     private Long recipe_id;
     private String title;
-    private String body;
+    @ElementCollection
+    private List<String> steps;
     @ElementCollection
     private List<String> ingredients;
 
@@ -32,9 +33,9 @@ public class Recipe extends BaseEntity implements Serializable {
 
     }
 
-    public Recipe(String title, String body, List<String> ingredients) {
+    public Recipe(String title, List<String> steps, List<String> ingredients) {
         this.title = title;
-        this.body = body;
+        this.steps = steps;
         this.ingredients = ingredients;
     }
 
@@ -55,8 +56,8 @@ public class Recipe extends BaseEntity implements Serializable {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
+    public List<String> getSteps() {
+        return steps;
     }
 
     @Override
@@ -66,17 +67,17 @@ public class Recipe extends BaseEntity implements Serializable {
         Recipe recipe = (Recipe) o;
         return recipe_id.equals(recipe.recipe_id) &&
                 title.equals(recipe.title) &&
-                body.equals(recipe.body) &&
+                steps.equals(recipe.steps) &&
                 ingredients.equals(recipe.ingredients);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipe_id, title, body, ingredients);
+        return Objects.hash(recipe_id, title, steps, ingredients);
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setBody(List<String> steps) {
+        this.steps = steps;
     }
 
     public List<String> getIngredients() {
