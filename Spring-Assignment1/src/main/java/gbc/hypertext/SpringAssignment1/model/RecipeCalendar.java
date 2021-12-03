@@ -1,18 +1,10 @@
-/*********************************************************************************
- * Project: HypertextAssassinsGBC
- * Assignment: Assignment #1
- * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
- * Student Number: 101247506, 101247765, 101325245
- * Date: November 7th, 2021
- * Description: modeling the recipe calendars
- *********************************************************************************/
-
 package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -24,21 +16,13 @@ public class RecipeCalendar extends BaseEntity{
 
     private Date date;
 
+    @NotBlank(message = "Please select a recipe")
     @OneToOne
     private Recipe recipe;
 
-    @OneToOne
-    private User user;
 
     public RecipeCalendar(){
-        this.date = new Date();
-    }
-
-    private void setUser(User user){
-        this.user = user;
-    }
-    private User getUser(){
-        return user;
+     this.date = new Date();
     }
 
     private void setID(Long ID){
