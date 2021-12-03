@@ -9,7 +9,11 @@
 </head>
 <body>
 <div th:each="ingredient : ${ingredients}">
-    <p th:text="${ingredient}"></p>
+
+    <form method="post" th:action="@{/addIngredientToList/{ingredient}(ingredient=${ingredient})}"  >
+        <p th:text="${ingredient}"  name="ingredient"></p>
+        <button  type="submit">Add To Your Shopping List</button>
+    </form>
 </div>
 
 </body>

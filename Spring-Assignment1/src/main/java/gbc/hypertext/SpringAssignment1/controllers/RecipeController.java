@@ -82,6 +82,7 @@ public class RecipeController {
     public String viewIngredients(@PathVariable long id, Model model){
         Recipe selected = recipeRepository.getById(id);
         model.addAttribute("ingredients", selected.getIngredients());
+
         return "/recipe/viewIngredients";
     }
 
@@ -99,14 +100,14 @@ public class RecipeController {
     }
 
     @GetMapping("/createRecipe")
-    public String showRegistrationForm(Model model ){
+    public String createRecipe(Model model ){
         model.addAttribute("recipe", new Recipe());
 
         return "/user/createRecipe";
     }
 
     @PostMapping("/createRecipe")
-    public String registerUser(Recipe recipe, Model model){
+    public String createRecipe(Recipe recipe, Model model){
         recipeRepository.save(recipe);
         model.addAttribute("recipes", recipeRepository.findAll());
         return "/user/viewRecipes";

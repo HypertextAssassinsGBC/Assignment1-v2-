@@ -70,6 +70,14 @@ public class User extends BaseEntity {
         recipe.setFavouritedBy(null);
     }
 
+    public Set<String> getShoppingList() {
+        return shoppingList;
+    }
+
+    public void setShoppingList(Set<String> shoppingList) {
+        this.shoppingList = shoppingList;
+    }
+
     public Cookbook getCookbook() {
         return cookbook;
     }
