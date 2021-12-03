@@ -71,7 +71,18 @@ public class RecipeController {
         current.getFavourites().add(selected);
         selected.setFavouritedBy(current);
         model.addAttribute("recipes" ,current.getFavourites());
+
         return "/recipe/favouritesVerification";
+    }
+
+
+
+    
+    @GetMapping({"/viewIngredients/{id}"})
+    public String viewIngredients(@PathVariable long id, Model model){
+        Recipe selected = recipeRepository.getById(id);
+        model.addAttribute("ingredients", selected.getIngredients());
+        return "/recipe/viewIngredients";
     }
 
     @GetMapping({"/search"})
