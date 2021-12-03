@@ -70,8 +70,14 @@ public class RecipeController {
         current.getFavourites().add(selected);
         selected.setFavouritedBy(current);
         model.addAttribute("recipes" ,current.getFavourites());
-        System.out.println(current.getFavourites());
+
         return "/user/favourites";
+    }
+    @GetMapping({"/viewIngredients/{id}"})
+    public String viewIngredients(@PathVariable long id, Model model){
+        Recipe selected = recipeRepository.getById(id);
+        model.addAttribute("ingredients", selected.getIngredients());
+        return "/recipe/viewIngredients";
     }
     @GetMapping({"/search"})
     public String findByKeyword(String keyword, Model model){

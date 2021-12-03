@@ -5,20 +5,11 @@
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
     <meta charset="UTF-8">
-    <title>View Recipe || HypertextAssassinsGBC</title>
+    <title>View Ingredients || HypertextAssassinsGBC</title>
 </head>
 <body>
-
-<div>
-    <h3 th:text="${recipe.title}"></h3>
-    <h3 th:text="${recipe.ingredients}"></h3>
-    <h3 th:text="${recipe.body}"></h3>
-    <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
-    <button type="submit" >Mark As Favourite</button>
-    </form>
-    <form th:action="@{/viewIngredients/{id}(id=${recipe.recipe_id})}" th:object="${recipe}" >
-        <button type="submit" >View Ingredients</button>
-    </form>
+<div th:each="ingredient : ${ingredients}">
+    <p th:text="${ingredient}"></p>
 </div>
 
 </body>
