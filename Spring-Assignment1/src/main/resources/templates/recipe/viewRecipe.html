@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
+<head>
+    <meta charset="UTF-8">
+    <title>View Recipe || HypertextAssassinsGBC</title>
+</head>
+<body>
+<div>
+    <h3 th:text="${recipe.title}"></h3>
+    <h3 th:text="${recipe.ingredients}"></h3>
+    <h3 th:text="${recipe.body}"></h3>
+    <form th:action="@{/markFavourite}" method="post" th:object="${recipe}" >
+    <button type="submit" >Mark As Favourite</button>
+    </form>
+</div>
+
+</body>
+</html>

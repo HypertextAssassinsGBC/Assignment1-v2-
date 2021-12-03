@@ -22,7 +22,6 @@ import gbc.hypertext.SpringAssignment1.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -49,19 +48,19 @@ public class SpringAssignment1Application {
 		return (args) -> {
 
 			//Bootstrap users
-			User admin = new User("Duncan", "Wardlaw", "duncan@gmail.com", "pass", "USER");
+			User admin = new User("Duncan", "Wardlaw", "duncan@gmail.com", "pass");
 			admin.setPassword(passwordEncoder.encode(admin.getPassword()));
 			userRepository.save(admin);
 
-			User jeff = new User("Jeff", "Bezos", "jeffybezos@gmail.com", "amazon", "USER");
+			User jeff = new User("Jeff", "Bezos", "jeffybezos@gmail.com", "amazon");
 			jeff.setPassword(passwordEncoder.encode(admin.getPassword()));
 			userRepository.save(jeff);
 
-			User mark = new User("Mark", "Zuck", "markyzuck@gmail.com", "facebook", "USER");
+			User mark = new User("Mark", "Zuck", "markyzuck@gmail.com", "facebook");
 			mark.setPassword(passwordEncoder.encode(admin.getPassword()));
 			userRepository.save(mark);
 
-			User eli = new User("Eli", "Musky", "elongatedmusk@gmail.com", "tesla", "USER");
+			User eli = new User("Eli", "Musky", "elongatedmusk@gmail.com", "tesla");
 			eli.setPassword(passwordEncoder.encode(admin.getPassword()));
 			userRepository.save(eli);
 

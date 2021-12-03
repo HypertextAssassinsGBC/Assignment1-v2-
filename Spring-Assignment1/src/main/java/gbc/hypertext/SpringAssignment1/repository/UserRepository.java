@@ -9,6 +9,7 @@
 
 package gbc.hypertext.SpringAssignment1.repository;
 
+import gbc.hypertext.SpringAssignment1.model.Recipe;
 import gbc.hypertext.SpringAssignment1.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,6 +25,9 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long>{
     @Query("SELECT u from User u WHERE u.username = :username")
     public UserDetails getUserByUsername(@Param("username") String username);
+
+
+    public User getByUsername(String username);
 
 
 }

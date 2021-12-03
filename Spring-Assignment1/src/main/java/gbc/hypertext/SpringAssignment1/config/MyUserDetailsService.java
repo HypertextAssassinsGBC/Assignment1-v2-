@@ -23,7 +23,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepo;
-    @Override
+
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         UserDetails user = userRepo.getUserByUsername(s);
         if(user == null){

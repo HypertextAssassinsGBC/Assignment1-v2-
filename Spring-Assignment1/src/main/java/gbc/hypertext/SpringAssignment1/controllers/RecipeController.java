@@ -10,26 +10,25 @@
 package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.Recipe;
-import gbc.hypertext.SpringAssignment1.model.User;
 
+import gbc.hypertext.SpringAssignment1.model.User;
 import gbc.hypertext.SpringAssignment1.repository.CookBookRepository;
 import gbc.hypertext.SpringAssignment1.repository.RecipeRepository;
+import gbc.hypertext.SpringAssignment1.repository.UserRepository;
 import gbc.hypertext.SpringAssignment1.service.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Optional;
 
 @Controller
-
 public class RecipeController {
+    @Autowired
+    private UserRepository userRepository;
     @Autowired
     private RecipeRepository recipeRepository;
 
@@ -54,6 +53,24 @@ public class RecipeController {
     public String viewRecipes(Model model) {
         model.addAttribute("recipes", recipeRepository.findAll());
         return "/user/viewRecipes";
+    }
+    @GetMapping({"/viewRecipe/{id}"})
+    public String viewRecipe(@PathVariable long id, Model model) {
+        Recipe selected = recipeRepository.getById(id);
+        model.addAttribute("recipe", selected);
+
+        return "/recipe/viewRecipe";
+    }
+    @PostMapping({"/markFavourite"})
+    public String markFavourite(Recipe recipe, Model model ){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        User current = userRepository.getByUsername(username);
+        current.getFavourites().add(recipe);
+        recipe.setFavouritedBy(current);
+        model.addAttribute("recipes" ,current.getFavourites());
+        System.out.println(current.getFavourites());
+        return "/user/favourites";
     }
     @GetMapping({"/search"})
     public String findByKeyword(String keyword, Model model){

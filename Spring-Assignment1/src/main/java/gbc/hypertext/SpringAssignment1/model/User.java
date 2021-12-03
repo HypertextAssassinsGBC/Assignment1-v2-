@@ -10,30 +10,38 @@
 package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
 public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long user_id;
     private String firstname;
     private String lastname;
     private String username;
     private String password;
-
     private String userRoles;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name="recipe_user",
+            joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name="recipe_id",referencedColumnName = "recipe_id", unique = true)}
+    )
+    private Set<Recipe> favourites;
     @OneToOne
     private Cookbook cookbook;
-
     @OneToOne
     private RecipeCalendar recipeCalendar;
 
-    public User(String firstname, String lastname, String username, String password, String userRole) {
+    //CONSTRUCTORS
+    public User(String firstname, String lastname, String username, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.password = password;
+        this.favourites = null;
         this.userRoles = "USER";
         this.cookbook = null;
     }
@@ -42,12 +50,38 @@ public class User extends BaseEntity {
 
     }
 
-    public Long getID() {
-        return ID;
+    //METHODS
+    public Set<Recipe> getFavourites() {
+        return favourites;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+
+    public void addToFavourites(Recipe recipe){
+        this.favourites.add(recipe);
+        if (recipe.getFavouritedBy() != this){
+            recipe.setFavouritedBy(this);
+        }
+
+    }
+    public void removeFromFavourites(Recipe recipe){
+        favourites.remove(recipe);
+        recipe.setFavouritedBy(null);
+    }
+
+    public Cookbook getCookbook() {
+        return cookbook;
+    }
+
+    public void setCookbook(Cookbook cookbook) {
+        this.cookbook = cookbook;
+    }
+
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long ID) {
+        this.user_id = ID;
     }
 
     public String getFirstname() {
@@ -92,7 +126,7 @@ public class User extends BaseEntity {
     @Override
     public String toString() {
         return "User{" +
-                "ID=" + ID +
+                "ID=" + user_id +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", username='" + username + '\'' +
