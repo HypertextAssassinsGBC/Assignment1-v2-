@@ -61,13 +61,14 @@ public class RecipeController {
 
         return "/recipe/viewRecipe";
     }
-    @PostMapping({"/markFavourite"})
-    public String markFavourite(Recipe recipe, Model model ){
+    @PostMapping({"/markFavourite/{id}"})
+    public String markFavourite(@PathVariable long id, Model model ){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User current = userRepository.getByUsername(username);
-        current.getFavourites().add(recipe);
-        recipe.setFavouritedBy(current);
+        Recipe selected = recipeRepository.getById(id);
+        current.getFavourites().add(selected);
+        selected.setFavouritedBy(current);
         model.addAttribute("recipes" ,current.getFavourites());
         System.out.println(current.getFavourites());
         return "/user/favourites";

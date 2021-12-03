@@ -8,11 +8,12 @@
     <title>View Recipe || HypertextAssassinsGBC</title>
 </head>
 <body>
+
 <div>
     <h3 th:text="${recipe.title}"></h3>
     <h3 th:text="${recipe.ingredients}"></h3>
     <h3 th:text="${recipe.body}"></h3>
-    <form th:action="@{/markFavourite}" method="post" th:object="${recipe}" >
+    <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
     <button type="submit" >Mark As Favourite</button>
     </form>
 </div>
