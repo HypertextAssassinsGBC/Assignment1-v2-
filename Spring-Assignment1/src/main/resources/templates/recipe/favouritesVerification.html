@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Recipe || HypertextAssassinsGBC</title>
+    <title>Favourites Verification || HypertextAssassinsGBC</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -45,22 +44,21 @@
         </div>
     </nav>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item"><a href="/recipe/index">All Recipes</a></li>
-            <li class="breadcrumb-item active" aria-current="page" th:text="${recipe.title}"></li>
-        </ol>
-    </nav>
-
-    <div class="container card mt-5 bg-secondary">
-        <div class="card-body p-4">
-            <h2 th:text="${recipe.title}"></h2>
-            <h6 th:text="${recipe.ingredients}"></h6>
-            <h6 th:text="${recipe.body}"></h6>
-            <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
-            <button class="btn btn-primary mt-2" type="submit" >Mark As Favourite</button>
-            </form>
+    <div class="container mt-5">
+        <div th:each="recipe : ${recipes}" class="card text-center">
+            <div class="card-header">
+                <b>Recipe Added to Favourites</b>
+            </div>
+                <div class="card-body p-4">
+                    <h5 class="card-title" th:text="${recipe.title}"></h5>
+                    <h6 class="card-text" th:text="${recipe.id}"></h6>
+                    <p class="card-text" th:text="${recipe.body}"></p>
+                    <p class="card-text" th:text="${recipe.ingredients}"></p>
+                </div>
+            <div class="card-footer text-muted">
+                    <a th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}" class="btn btn-primary">Go Back</a>
+                    <a href="#" class="btn btn-primary">See your favourites</a>
+            </div>
         </div>
     </div>
 

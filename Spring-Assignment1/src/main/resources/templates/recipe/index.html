@@ -45,6 +45,13 @@
         </div>
     </nav>
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">All Recipes</li>
+        </ol>
+    </nav>
+
     <div class="container">
         <h2 class="text-center m-4">All Recipes</h2>
         <div class="card-columns p-2">
@@ -54,9 +61,8 @@
                     <h6 class="card-text" th:text="${recipe.recipe_id}"></h6>
                     <p class="card-text" th:text="${recipe.body}"></p>
                     <p class="card-text" th:text="${recipe.ingredients}"></p>
-                    <a class="btn btn-primary" href="#">Add Recipe to Favourites</a>
-                    <a class="btn btn-primary"  th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}">View Recipe</a>
-
+                    <a class="btn btn-primary m-1" href="#">Add Recipe to Favourites</a>
+                    <a class="btn btn-primary m-1"  th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}">View Recipe</a>
                 </div>
             </div>
         </div>
