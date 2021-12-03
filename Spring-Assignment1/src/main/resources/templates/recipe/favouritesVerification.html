@@ -45,7 +45,7 @@
     </nav>
 
     <div class="container mt-5">
-        <div th:each="recipe : ${recipes}" class="card text-center">
+        <div th:object=${recipes} class="card text-center">
             <div class="card-header">
                 <b>Recipe Added to Favourites</b>
             </div>
@@ -57,7 +57,7 @@
                 </div>
             <div class="card-footer text-muted">
                     <a th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}" class="btn btn-primary">Go Back</a>
-                    <a href="#" class="btn btn-primary">See your favourites</a>
+                    <a th:href="@{/favourites}" class="btn btn-primary">See your favourites</a>
             </div>
         </div>
     </div>

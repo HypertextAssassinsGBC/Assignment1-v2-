@@ -30,6 +30,8 @@ public class User extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name="recipe_id",referencedColumnName = "recipe_id", unique = true)}
     )
     private Set<Recipe> favourites;
+    @ElementCollection
+    private Set<String> shoppingList;
     @OneToOne
     private Cookbook cookbook;
     @OneToOne

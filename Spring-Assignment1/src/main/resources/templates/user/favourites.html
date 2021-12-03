@@ -10,13 +10,13 @@
 <body>
 <h4 th:text="hello"></h4>
     <div class="card-deck">
-        <div th:each="recipe : ${recipes}" class="card">
+        <div th:each="recipe : ${favourites}" class="card">
             <div class="card-body">
                 <h5 class="card-title" th:text="${recipe.title}"></h5>
                 <h6 class="card-text" th:text="${recipe.id}"></h6>
                 <p class="card-text" th:text="${recipe.body}"></p>
                 <p class="card-text" th:text="${recipe.ingredients}"></p>
-                <a class="btn btn-primary" href="#">Add Recipe to Cookbook</a>
+
             </div>
             <div class="card-footer">
                 <small class="text-muted text-center">HypertextAssassinsGBC</small>

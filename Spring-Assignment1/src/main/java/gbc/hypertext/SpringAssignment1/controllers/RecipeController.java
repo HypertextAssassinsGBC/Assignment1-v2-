@@ -70,7 +70,7 @@ public class RecipeController {
         Recipe selected = recipeRepository.getById(id);
         current.getFavourites().add(selected);
         selected.setFavouritedBy(current);
-        model.addAttribute("recipes" ,current.getFavourites());
+        model.addAttribute("recipe" ,selected);
 
         return "/recipe/favouritesVerification";
     }
