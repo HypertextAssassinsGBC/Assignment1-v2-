@@ -61,7 +61,9 @@
                     <h6 class="card-text" th:text="${recipe.recipe_id}"></h6>
                     <p class="card-text" th:text="${recipe.steps}"></p>
                     <p class="card-text" th:text="${recipe.ingredients}"></p>
-                    <a class="btn btn-primary m-1" href="#">Add Recipe to Favourites</a>
+                    <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
+                        <button class="btn btn-primary mt-2" type="submit" >Add Recipe As Favourite</button>
+                    </form>
                     <a class="btn btn-primary m-1"  th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}">View Recipe</a>
                 </div>
             </div>
