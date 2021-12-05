@@ -8,7 +8,14 @@
 <div class="form-group blu-margin">
     <select class="form-control" th:field="${user.ID}">
 <option value="0">Select User</option>
-        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.firstName}"></option>
+        <option th:each="user : ${users}" th:value="${user.ID}" th:text="${user.firstName}"></option>
+    </select>
+</div>
+
+<div class="form-group blu-margin">
+    <select class="form-control" th:field="${recipe.ID}">
+        <option value="0">Select Recipe </option>
+        <option th:each="recipe : ${recipes}" th:value="${recipe.ID}" th:text="${recipe.title}"></option>
     </select>
 </div>
 </body>
