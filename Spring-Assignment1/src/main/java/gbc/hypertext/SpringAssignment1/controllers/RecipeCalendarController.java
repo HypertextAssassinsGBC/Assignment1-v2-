@@ -28,7 +28,7 @@ public class RecipeCalendarController {
     @GetMapping({"/createMeal"})
     public String createMeal(Model model){
         model.addAttribute("meal", new RecipeCalendar());
-        return "/user/createMeal";
+        return "/recipeCalendar/createMeal";
     }
 
     @PostMapping({"/createMeal"})

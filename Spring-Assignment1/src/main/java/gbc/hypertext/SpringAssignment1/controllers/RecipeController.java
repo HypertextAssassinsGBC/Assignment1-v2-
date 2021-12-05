@@ -9,6 +9,7 @@
 
 package gbc.hypertext.SpringAssignment1.controllers;
 
+import gbc.hypertext.SpringAssignment1.model.Cookbook;
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 
 import gbc.hypertext.SpringAssignment1.model.User;
@@ -23,8 +24,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
-
 @Controller
 public class RecipeController {
     @Autowired
@@ -35,8 +34,7 @@ public class RecipeController {
     @Autowired
     private RecipeService recipeService;
 
-    @Autowired
-    private CookBookRepository cookBookRepository;
+
 
     @GetMapping({ "/recipe/all"})
     public String allRecipes(Model model){
@@ -52,7 +50,7 @@ public class RecipeController {
     @GetMapping({"/viewRecipes"})
     public String viewRecipes(Model model) {
         model.addAttribute("recipes", recipeRepository.findAll());
-        return "/user/viewRecipes";
+        return "viewAllRecipes";
     }
     @GetMapping({"/viewRecipe/{id}"})
     public String viewRecipe(@PathVariable long id, Model model) {
@@ -85,22 +83,27 @@ public class RecipeController {
 
         return "/recipe/viewIngredients";
     }
+    @GetMapping({"/viewSteps/{id}"})
+    public String viewSteps(@PathVariable long id, Model model){
+        Recipe selected = recipeRepository.getById(id);
+        model.addAttribute("steps", selected.getSteps());
+
+        return "/recipe/viewSteps";
+    }
+
 
     @GetMapping({"/search"})
     public String findByKeyword(String keyword, Model model){
-        model.addAttribute("recipes", recipeRepository.findAllByIngredientsIgnoreCase(keyword));
-        System.out.println(recipeRepository.findAllByIngredientsIgnoreCase(keyword));
-        return "/user/viewRecipes";
+        model.addAttribute("recipes", recipeRepository.findAllByIngredientsLikeIgnoreCase(keyword));
+
+        return "user/viewAllRecipes";
     };
 
-    @GetMapping({"/viewCookbook"})
-    public String viewCookbook(Model model) {
-        model.addAttribute("cookbook", cookBookRepository.findAll());
-        return "/user/viewCookbook";
-    }
+
 
     @GetMapping("/createRecipe")
     public String createRecipe(Model model ){
+
         model.addAttribute("recipe", new Recipe());
 
         return "/user/createRecipe";
@@ -108,9 +111,14 @@ public class RecipeController {
 
     @PostMapping("/createRecipe")
     public String createRecipe(Recipe recipe, Model model){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        User current = userRepository.getByUsername(username);
+
+        current.getCookbook().addRecipe(recipe);
         recipeRepository.save(recipe);
-        model.addAttribute("recipes", recipeRepository.findAll());
-        return "/user/viewRecipes";
+        model.addAttribute("recipes", current.getCookbook().getRecipes());
+        return "user/viewCookbook";
     }
 
 

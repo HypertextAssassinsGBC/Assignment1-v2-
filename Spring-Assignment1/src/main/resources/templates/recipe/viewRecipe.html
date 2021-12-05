@@ -65,6 +65,9 @@
             <form th:action="@{/viewIngredients/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
                 <button class="btn btn-primary mt-2" type="submit" >View Ingredients</button>
             </form>
+            <form th:action="@{/viewSteps/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
+                <button class="btn btn-primary mt-2" type="submit" >View Steps</button>
+            </form>
         </div>
     </div>
 

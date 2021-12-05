@@ -22,5 +22,6 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long>{
 
 
 
-    public List<Recipe> findAllByIngredientsIgnoreCase(String keyword);
+    public List<Recipe> findAllByIngredientsLikeIgnoreCase(String keyword);
+
 }

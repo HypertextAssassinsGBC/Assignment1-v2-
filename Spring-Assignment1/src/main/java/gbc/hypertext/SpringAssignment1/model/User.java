@@ -10,6 +10,7 @@
 package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 
@@ -32,7 +33,7 @@ public class User extends BaseEntity {
     private Set<Recipe> favourites;
     @ElementCollection
     private Set<String> shoppingList;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Cookbook cookbook;
     @OneToOne
     private RecipeCalendar recipeCalendar;
@@ -45,7 +46,7 @@ public class User extends BaseEntity {
         this.password = password;
         this.favourites = null;
         this.userRoles = "USER";
-        this.cookbook = null;
+        this.cookbook = new Cookbook("Your cookbook");
     }
 
     public User() {

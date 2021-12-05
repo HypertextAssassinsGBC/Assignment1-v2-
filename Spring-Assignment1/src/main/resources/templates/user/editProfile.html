@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>View Recipes || HypertextAssassinsGBC</title>
+    <title>Edit Profile</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,14 +21,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="/recipe/all">Recipes</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/user/recipes">User Recipes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="../about">About</a>
             </li>
         </ul>
-        <li class="nav-item form-inline my-lg-0 mr-5 dropdown">
+        <li class="active nav-item form-inline my-lg-0 mr-5 dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 User
             </a>
@@ -41,32 +41,31 @@
     </div>
 </nav>
 
-<div class="container">
-    <div class="jumbotron jumbotron-fluid mt-5 p-4">
-        <div class="container">
-            <h1 class="display-4">Your Recipes</h1>
-            <p class="lead"></p>
-        </div>
-    </div>
+<div class="container m-3">
+    <h2>Edit Your Profile</h2>
+    <form th:action="@{/editProfile}" th:object="${user}" method="post">
 
-    <div class="card-deck">
-        <div th:each="recipe : ${recipes}" class="card">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${recipe.title}"></h5>
-                <h6 class="card-text" th:text="${recipe.id}"></h6>
-                <p class="card-text" th:text="${recipe.steps}"></p>
-                <p class="card-text" th:text="${recipe.ingredients}"></p>
-                <a th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}" >View This Recipe</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted text-center">HypertextAssassinsGBC</small>
-            </div>
+        <div class="form-group">
+            <label for="password"> Password:  </label>
+            <input class="form-control" id="password" type="password" name="password"/>
+            <small class="form-text text-muted">We'll never share your password with anyone else.</small>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="firstname"> First Name:  (Sometimes you just need a fresh start)</label>
+            <input class="form-control" id="firstname" type="text" name="firstname"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname"> Last Name:  (Congrats on the marriage!)</label>
+            <input class="form-control" id="lastname" type="text" name="lastname"/>
+        </div>
+        <button type="submit" class="btn btn-primary" value="Submit">Edit</button>
+    </form>
+
+
 </div>
 
 <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
-    <h3 class="navbar-brand" href="#">HypertextAssassinsGBC&copy;</h3>
+    <h3 class="navbar-brand">HypertextAssassinsGBC&copy;</h3>
 </nav>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

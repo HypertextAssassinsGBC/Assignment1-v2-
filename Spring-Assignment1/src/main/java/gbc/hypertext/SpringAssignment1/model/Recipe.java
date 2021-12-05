@@ -28,6 +28,10 @@ public class Recipe extends BaseEntity implements Serializable {
 
     @ManyToOne
     private User favouritedBy;
+    @ManyToOne
+    private User createdBy;
+
+
 
     public Recipe(){
 
@@ -94,5 +98,12 @@ public class Recipe extends BaseEntity implements Serializable {
 
     public void setFavouritedBy(User favouritedBy) {
         this.favouritedBy = favouritedBy;
+    }
+    public User getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(User createdBy) {
+        this.createdBy = createdBy;
     }
 }

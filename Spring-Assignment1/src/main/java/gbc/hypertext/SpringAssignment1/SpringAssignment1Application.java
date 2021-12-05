@@ -145,11 +145,7 @@ public class SpringAssignment1Application {
 			);
 			recipeRepository.save(BrusselsSalad);
 
-			//Bootstrap Cookbooks
-			Cookbook markBook = new Cookbook("Mark's Cookbook");
-			markBook.addRecipe(chickenSoup);
-			markBook.addRecipe(lasagna);
-			cookBookRepository.save(markBook);
+
 		};
 	}
 

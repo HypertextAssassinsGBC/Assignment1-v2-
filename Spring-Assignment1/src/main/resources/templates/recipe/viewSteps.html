@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
     <meta charset="UTF-8">
-    <title>View Recipes || HypertextAssassinsGBC</title>
+    <title>View Steps || HypertextAssassinsGBC</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,10 +18,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="../index">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/recipe/all">Recipes</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="/user/recipes">User Recipes</a>
             </li>
             <li class="nav-item">
@@ -38,29 +38,22 @@
                 <a class="dropdown-item" href="/logout">Logout</a>
             </div>
         </li>
+        <form class="form-inline my-2 mr-2 my-lg-0" th:action="@{/search}">
+            <input class="form-control mr-sm-2" type="search" name="keyword" id="keyword" th:value="${keyword}" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     </div>
 </nav>
 
 <div class="container">
-    <div class="jumbotron jumbotron-fluid mt-5 p-4">
-        <div class="container">
-            <h1 class="display-4">Your Recipes</h1>
-            <p class="lead"></p>
-        </div>
-    </div>
+    <div class="card p-1 m-3" >
+        <div class="card-body">
+            <table th:each="step : ${steps}">
+                <tr th:text="${step}"  name="ingredient"></tr>
+            </table>
 
-    <div class="card-deck">
-        <div th:each="recipe : ${recipes}" class="card">
-            <div class="card-body">
-                <h5 class="card-title" th:text="${recipe.title}"></h5>
-                <h6 class="card-text" th:text="${recipe.id}"></h6>
-                <p class="card-text" th:text="${recipe.steps}"></p>
-                <p class="card-text" th:text="${recipe.ingredients}"></p>
-                <a th:href="@{/viewRecipe/{id}(id=${recipe.recipe_id})}" >View This Recipe</a>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted text-center">HypertextAssassinsGBC</small>
-            </div>
+
+
         </div>
     </div>
 </div>
