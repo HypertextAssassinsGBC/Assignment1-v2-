@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Meal Plan</title>
+</head>
+<body>
+<div class="form-group blu-margin">
+    <select class="form-control" th:field="${user.ID}">
+<option value="0">Select User</option>
+        <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.firstName}"></option>
+    </select>
+</div>
+</body>
+</html>
