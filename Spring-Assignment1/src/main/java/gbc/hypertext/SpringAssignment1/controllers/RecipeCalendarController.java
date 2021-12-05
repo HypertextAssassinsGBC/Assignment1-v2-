@@ -27,7 +27,11 @@ public class RecipeCalendarController {
 
     @GetMapping({"/createMeal"})
     public String createMeal(Model model){
+        List<User> users = userRepository.findAll();
+        List<Recipe> recipes = recipeRepository.findAll();
         model.addAttribute("meal", new RecipeCalendar());
+        model.addAttribute("users", users);
+        model.addAttribute("recipes", recipes);
         return "/recipeCalendar/createMeal";
     }
 
@@ -41,7 +45,11 @@ public class RecipeCalendarController {
     public String updateEvent(@PathVariable("id") long id, Model model){
         RecipeCalendar recipeCalendar = recipeCalendarRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Event ID: " + id));
-        model.addAttribute("meal", recipeCalendar);
+        model.addAttribute("meal", recipeCalendar)
+        List<User> users = userRepository.findAll();
+        List<Recipe> recipes = recipeRepository.findAll();
+        model.addAttribute("users", users);
+        model.addAttribute("recipes", recipes);
         return "update-event";
     }
 
