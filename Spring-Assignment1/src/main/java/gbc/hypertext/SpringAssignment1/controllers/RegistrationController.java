@@ -4,8 +4,9 @@
  * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
  * Student Number: 101247506, 101247765, 101325245
  * Date: November 7th, 2021
- * Description: routes registration pages
- *********************************************************************************/package gbc.hypertext.SpringAssignment1.controllers;
+ * Description: routes registration requests
+ *********************************************************************************/
+package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.User;
 

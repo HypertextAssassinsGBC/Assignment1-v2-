@@ -4,19 +4,19 @@
  * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
  * Student Number: 101247506, 101247765, 101325245
  * Date: November 7th, 2021
- * Description: routes recipe and cookbook files
+ * Description: handle recipe requests
  *********************************************************************************/
 
 package gbc.hypertext.SpringAssignment1.controllers;
 
-import gbc.hypertext.SpringAssignment1.model.Cookbook;
+
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 
 import gbc.hypertext.SpringAssignment1.model.User;
-import gbc.hypertext.SpringAssignment1.repository.CookBookRepository;
+
 import gbc.hypertext.SpringAssignment1.repository.RecipeRepository;
 import gbc.hypertext.SpringAssignment1.repository.UserRepository;
-import gbc.hypertext.SpringAssignment1.service.RecipeService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,8 +31,7 @@ public class RecipeController {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    @Autowired
-    private RecipeService recipeService;
+
 
 
 

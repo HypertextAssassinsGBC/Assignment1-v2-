@@ -4,13 +4,12 @@
  * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
  * Student Number: 101247506, 101247765, 101325245
  * Date: November 7th, 2021
- * Description: persists user entity's to the db
+ * Description: persists user entities to the db
  *********************************************************************************/
 
 package gbc.hypertext.SpringAssignment1.repository;
 
-import gbc.hypertext.SpringAssignment1.model.Event;
-import gbc.hypertext.SpringAssignment1.model.Recipe;
+
 import gbc.hypertext.SpringAssignment1.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -19,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
+
 
 @Repository
 @Transactional

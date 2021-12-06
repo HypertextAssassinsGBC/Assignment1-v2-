@@ -1,7 +1,14 @@
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: handles user requests
+ *********************************************************************************/
 package gbc.hypertext.SpringAssignment1.controllers;
 
 import gbc.hypertext.SpringAssignment1.model.User;
-import gbc.hypertext.SpringAssignment1.repository.CookBookRepository;
 import gbc.hypertext.SpringAssignment1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;

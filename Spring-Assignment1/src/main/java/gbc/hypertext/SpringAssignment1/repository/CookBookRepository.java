@@ -4,7 +4,7 @@
  * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
  * Student Number: 101247506, 101247765, 101325245
  * Date: November 7th, 2021
- * Description: persists cookbook entity's to the db
+ * Description: persists cookbook entities to the db
  *********************************************************************************/
 
 package gbc.hypertext.SpringAssignment1.repository;

@@ -4,7 +4,7 @@
  * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
  * Student Number: 101247506, 101247765, 101325245
  * Date: November 7th, 2021
- * Description: modeling the recipes
+ * Description: recipe model
  *********************************************************************************/
 
 package gbc.hypertext.SpringAssignment1.model;

@@ -1,5 +1,13 @@
-package gbc.hypertext.SpringAssignment1.controllers;
+/*********************************************************************************
+ * Project: HypertextAssassinsGBC
+ * Assignment: Assignment #1
+ * Author(s): Duncan Wardlaw, Oliver Kmiec, Paolo Tous
+ * Student Number: 101247506, 101247765, 101325245
+ * Date: November 7th, 2021
+ * Description: handle event requests
+ *********************************************************************************/
 
+package gbc.hypertext.SpringAssignment1.controllers;
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 import gbc.hypertext.SpringAssignment1.model.Event;
 import gbc.hypertext.SpringAssignment1.model.User;
@@ -11,14 +19,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
 import java.util.Date;
-import java.util.List;
+
 
 @Controller
 public class EventController {
