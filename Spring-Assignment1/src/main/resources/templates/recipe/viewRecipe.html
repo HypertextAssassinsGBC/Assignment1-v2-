@@ -59,15 +59,17 @@
             <h2 th:text="${recipe.title}"></h2>
             <h6 th:text="${recipe.steps}"></h6>
             <h6 th:text="${recipe.ingredients}"></h6>
-            <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
-                <button class="btn btn-primary mt-2" type="submit" >Mark As Favourite</button>
-            </form>
-            <form th:action="@{/viewIngredients/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
-                <button class="btn btn-primary mt-2" type="submit" >View Ingredients</button>
-            </form>
-            <form th:action="@{/viewSteps/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
-                <button class="btn btn-primary mt-2" type="submit" >View Steps</button>
-            </form>
+            <div class="d-flex mt-5 justify-content-center">
+                <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
+                    <button class="btn btn-success mx-2 mt-2" type="submit" >Mark As Favourite</button>
+                </form>
+                <form th:action="@{/viewIngredients/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
+                    <button class="btn btn-primary mx-2 mt-2" type="submit" >View Ingredients</button>
+                </form>
+                <form th:action="@{/viewSteps/{id}(id=${recipe.recipe_id})}" method="get" th:object="${recipe}" >
+                    <button class="btn btn-warning mx-2 mt-2" type="submit" >View Steps</button>
+                </form>
+            </div>
         </div>
     </div>
 
