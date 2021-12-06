@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" href="https://img.icons8.com/external-becris-lineal-color-becris/64/000000/external-recipe-kitchen-cooking-becris-lineal-color-becris-1.png"/>
 <head>
     <meta charset="UTF-8">
-    <title>View Recipes || HypertextAssassinsGBC</title>
+    <title>Your Events || HypertextAssassinsGBC</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,7 +44,7 @@
 <div class="container">
     <div class="jumbotron jumbotron-fluid mt-5 p-4">
         <div class="container">
-            <h1 class="display-4">Your Recipes</h1>
+            <h1 class="display-4">Your Events</h1>
             <p class="lead"></p>
         </div>
     </div>
@@ -55,9 +55,9 @@
                 <h5 class="card-title" th:text="${event.recipe.title}"></h5>
                 <h5 class="card-title" th:text="${event.date}"></h5>
 
-                <a th:href="@{/updateEvent/{id}(id=${event.ID})}" >Edit The Date Of This Event</a>
-                <a th:href="@{/deleteEvent/{id}(id=${event.ID})}" >Delete This Event</a>
-                <a th:href="@{/viewRecipe/{id}(id=${event.recipe.recipe_id})}" >View This Recipe</a>
+                <a class="btn btn-success" th:href="@{/updateEvent/{id}(id=${event.ID})}" >Edit The Date Of This Event</a>
+                <a class="btn btn-danger" th:href="@{/deleteEvent/{id}(id=${event.ID})}" >Delete This Event</a>
+                <a class="btn btn-primary" th:href="@{/viewRecipe/{id}(id=${event.recipe.recipe_id})}" >View This Recipe</a>
             </div>
             <div class="card-footer">
                 <small class="text-muted text-center">HypertextAssassinsGBC</small>

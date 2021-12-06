@@ -86,6 +86,7 @@ public class RecipeController {
     public String viewSteps(@PathVariable long id, Model model){
         Recipe selected = recipeRepository.getById(id);
         model.addAttribute("steps", selected.getSteps());
+        model.addAttribute("recipe", selected);
 
         return "/recipe/viewSteps";
     }
