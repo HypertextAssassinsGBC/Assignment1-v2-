@@ -9,6 +9,7 @@
 
 package gbc.hypertext.SpringAssignment1.repository;
 
+import gbc.hypertext.SpringAssignment1.model.Event;
 import gbc.hypertext.SpringAssignment1.model.Recipe;
 import gbc.hypertext.SpringAssignment1.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,6 +29,7 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
 
     public User getByUsername(String username);
+
 
 
 }

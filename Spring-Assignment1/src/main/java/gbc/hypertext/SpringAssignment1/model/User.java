@@ -11,6 +11,7 @@ package gbc.hypertext.SpringAssignment1.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -35,8 +36,9 @@ public class User extends BaseEntity {
     private Set<String> shoppingList;
     @OneToOne(cascade = CascadeType.ALL)
     private Cookbook cookbook;
-    @OneToOne
-    private RecipeCalendar recipeCalendar;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Event> events;
 
     //CONSTRUCTORS
     public User(String firstname, String lastname, String username, String password) {
@@ -47,6 +49,7 @@ public class User extends BaseEntity {
         this.favourites = null;
         this.userRoles = "USER";
         this.cookbook = new Cookbook("Your cookbook");
+        this.events = null;
     }
 
     public User() {
@@ -70,7 +73,21 @@ public class User extends BaseEntity {
         favourites.remove(recipe);
         recipe.setFavouritedBy(null);
     }
+    public List<Event> getEvents() {
+        return events;
+    }
+    public Event findEvent(int id) {
+        for(Event event : events) {
+            if(event.getID().equals(id)) {
+                return event;
+            }
+        }
+        return null;
+    }
 
+    public void setEvents(List<Event> events) {
+        this.events = events;
+    }
     public Set<String> getShoppingList() {
         return shoppingList;
     }
