@@ -64,6 +64,10 @@ public class Recipe extends BaseEntity implements Serializable {
         return steps;
     }
 
+    public void setSteps(List<String> steps) {
+        this.steps = steps;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

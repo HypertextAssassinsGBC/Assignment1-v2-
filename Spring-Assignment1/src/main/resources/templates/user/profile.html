@@ -41,14 +41,36 @@
         </div>
     </nav>
 
-    <div class="container m-3">
-        <h2>Welcome to your profile!</h2>
-        <p class="p-2" th:text="${user.username}"></p>
-        <p class="p-2" th:text="${user.firstname}"></p>
-        <p class="p-2" th:text="${user.lastname}"></p>
-        <a class="btn btn-danger p-2" th:href="@{/editProfile/{id}(id=${user.user_id})}">Edit</a>
-        <a class="btn btn-danger p-2" href="/logout">Logout</a>
+    <div class="container mt-5">
+        <div class="card text-center">
+            <div class="card-header">
+                <h2>Welcome to your profile!</h2>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <img src="https://www.pngall.com/wp-content/uploads/5/Profile-PNG-File.png" class="rounded w-50 h-50" alt="profile-pic">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="pr-1">Username: </p>
+                    <b><p class="" th:text="${user.username}"></p></b>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="pr-1">First Name: </p>
+                    <b><p class="" th:text="${user.firstname}"></p></b>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="pr-1">Last Name: </p>
+                    <b><p class="" th:text="${user.lastname}"></p></b>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <a class="btn btn-danger m-1 p-2" th:href="@{/editProfile/{id}(id=${user.user_id})}">Edit</a>
+                <a class="btn btn-danger m-1 p-2" href="/logout">Logout</a>
+            </div>
+        </div>
     </div>
+
+
 
     <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
         <h3 class="navbar-brand">HypertextAssassinsGBC&copy;</h3>

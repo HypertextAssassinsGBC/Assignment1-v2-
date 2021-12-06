@@ -45,7 +45,7 @@ public class RecipeCalendarController {
     public String updateEvent(@PathVariable("id") long id, Model model){
         RecipeCalendar recipeCalendar = recipeCalendarRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid Event ID: " + id));
-        model.addAttribute("meal", recipeCalendar)
+        model.addAttribute("meal", recipeCalendar);
         List<User> users = userRepository.findAll();
         List<Recipe> recipes = recipeRepository.findAll();
         model.addAttribute("users", users);

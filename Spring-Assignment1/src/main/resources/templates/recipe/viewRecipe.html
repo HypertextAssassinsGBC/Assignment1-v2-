@@ -57,8 +57,8 @@
     <div class="container card mt-5">
         <div class="card-body p-5">
             <h2 th:text="${recipe.title}"></h2>
-            <h6 th:text="${recipe.ingredients}"></h6>
             <h6 th:text="${recipe.steps}"></h6>
+            <h6 th:text="${recipe.ingredients}"></h6>
             <form th:action="@{/markFavourite/{id}(id=${recipe.recipe_id})}" method="post" th:object="${recipe}" >
                 <button class="btn btn-primary mt-2" type="submit" >Mark As Favourite</button>
             </form>

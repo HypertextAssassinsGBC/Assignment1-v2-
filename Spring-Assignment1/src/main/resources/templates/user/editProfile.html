@@ -41,27 +41,27 @@
     </div>
 </nav>
 
-<div class="container m-3">
-    <h2>Edit Your Profile</h2>
-    <form th:action="@{/editProfile}" th:object="${user}" method="post">
+<div class="container p-5 rounded bg-dark my-5 text-light">
+    <div class="m-3">
+        <h2 class="text-center">Edit Your Profile</h2>
+        <form th:action="@{/editProfile}" th:object="${user}" method="post">
 
-        <div class="form-group">
-            <label for="password"> Password:  </label>
-            <input class="form-control" id="password" type="password" name="password"/>
-            <small class="form-text text-muted">We'll never share your password with anyone else.</small>
-        </div>
-        <div class="form-group">
-            <label for="firstname"> First Name:  (Sometimes you just need a fresh start)</label>
-            <input class="form-control" id="firstname" type="text" name="firstname"/>
-        </div>
-        <div class="form-group">
-            <label for="lastname"> Last Name:  (Congrats on the marriage!)</label>
-            <input class="form-control" id="lastname" type="text" name="lastname"/>
-        </div>
-        <button type="submit" class="btn btn-primary" value="Submit">Edit</button>
-    </form>
-
-
+            <div class="form-group">
+                <label for="password"> Password:  </label>
+                <input class="form-control" id="password" type="password" name="password"/>
+                <small class="form-text text-muted">We'll never share your password with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="firstname"> First Name:  (Sometimes you just need a fresh start)</label>
+                <input class="form-control" id="firstname" type="text" name="firstname"/>
+            </div>
+            <div class="form-group">
+                <label for="lastname"> Last Name:  (Congrats on the marriage!)</label>
+                <input class="form-control" id="lastname" type="text" name="lastname"/>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Submit">Edit</button>
+        </form>
+    </div>
 </div>
 
 <nav class="navbar fixed-bottom navbar-dark bg-dark d-flex justify-content-center">
